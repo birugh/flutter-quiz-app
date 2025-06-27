@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/components/custom_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,31 +33,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                OutlinedButton(
-                  onPressed: () {
-                    //
-                  },
-                  child: Text(
-                    'Start Quiz',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    side: WidgetStateProperty.all(
-                      BorderSide(width: 2, color: Colors.white),
-                    ),
-                    textStyle: WidgetStateProperty.all(
-                      TextStyle(color: Colors.white),
-                    ),
-                    shape: WidgetStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                ),
+                WidgetCustomButton(),
               ],
             ),
           ),
