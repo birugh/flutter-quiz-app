@@ -27,6 +27,17 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
 
   @override
   Widget build(BuildContext context) {
+    // var screenWidget = activeScreen == 'start-screen'
+    //     ? WidgetStartScreen(startQuiz: switchScreen)
+    //     : WidgetMenuScreen();
+
+    Widget? screenWidget;
+    if (activeScreen == 'start-screen') {
+      screenWidget = WidgetStartScreen(startQuiz: switchScreen);
+    } else {
+      screenWidget = WidgetMenuScreen();
+    }
+
     return MaterialApp(
       title: 'Flutter Quiz',
       theme: ThemeData(
@@ -41,9 +52,7 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen == 'start-screen'
-              ? WidgetStartScreen(startQuiz: switchScreen)
-              : WidgetMenuScreen(),
+          child: screenWidget,
         ),
       ),
     );
