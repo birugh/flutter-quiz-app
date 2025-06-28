@@ -11,17 +11,17 @@ class WidgetMaterialApp extends StatefulWidget {
 }
 
 class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
-  Widget? activeScreen;
+  String? activeScreen = 'start-screen';
 
-  @override
-  void initState() {
-    activeScreen = WidgetStartScreen(startQuiz: switchScreen);
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   activeScreen = 'start-screen';
+  //   super.initState();
+  // }
 
   void switchScreen() {
     setState(() {
-      activeScreen = const WidgetMenuScreen();
+      activeScreen = 'menu-screen';
     });
   }
 
@@ -41,7 +41,9 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
               end: Alignment.bottomRight,
             ),
           ),
-          child: activeScreen,
+          child: activeScreen == 'start-screen'
+              ? WidgetStartScreen(startQuiz: switchScreen)
+              : WidgetMenuScreen(),
         ),
       ),
     );
