@@ -25,7 +25,7 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
 
   void switchScreen() {
     setState(() {
-      activeScreen = 'menu-screen';
+      activeScreen = 'quiz-screen';
     });
   }
 
@@ -33,10 +33,16 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     selectedAnswer.add(answer);
     if (selectedAnswer.length == questions.length) {
       setState(() {
-        // selectedAnswer = [];
         activeScreen = 'results-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswer = [];
+      activeScreen = 'quiz-screen';
+    });
   }
 
   @override
@@ -49,7 +55,10 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     if (activeScreen == 'start-screen') {
       screenWidget = WidgetStartScreen(startQuiz: switchScreen);
     } else if (activeScreen == 'results-screen') {
-      screenWidget = WidgetResultsScreen(chosenAnswer: selectedAnswer);
+      screenWidget = WidgetResultsScreen(
+        chosenAnswer: selectedAnswer,
+        restartQuiz: restartQuiz,
+      );
     } else {
       screenWidget = WidgetQuestionMenu(onSelectAnswer: chooseAnswer);
     }
