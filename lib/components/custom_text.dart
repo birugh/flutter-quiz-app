@@ -23,6 +23,7 @@ class WidgetCustomText extends StatelessWidget {
         color: color ?? AppColors.white,
         fontWeight: fontWeight ?? FontWeight.w500,
       ),
+      textAlign: TextAlign.center,
     );
   }
 }
