@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/custom_button.dart';
+import 'package:quiz_app/components/custom_outlined_button.dart';
 import 'package:quiz_app/components/custom_text.dart';
 
 class WidgetStartScreen extends StatefulWidget {
-  const WidgetStartScreen({super.key});
+  const WidgetStartScreen({required this.startQuiz, super.key});
+
+  final void Function() startQuiz;
 
   @override
   State<WidgetStartScreen> createState() => _WidgetStartScreenState();
@@ -24,9 +26,7 @@ class _WidgetStartScreenState extends State<WidgetStartScreen> {
           WidgetCustomText(text: 'Learn Flutter the fun way!'),
           const SizedBox(height: 20),
           WidgetCustomButton(
-            onPressed: () {
-              // TODO
-            },
+            onPressed: widget.startQuiz,
             text: 'Start Quiz',
             icon: const Icon(Icons.keyboard_arrow_right_rounded),
           ),
