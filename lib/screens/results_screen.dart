@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/components/custom_elevated_button.dart';
 import 'package:quiz_app/components/custom_text.dart';
+import 'package:quiz_app/data/questions.dart';
 
 class WidgetResultsScreen extends StatelessWidget {
   final List<String> chosenAnswer;
 
   const WidgetResultsScreen({super.key, required this.chosenAnswer});
+
+  List<Map<String, Object>> getSummaryData() {
+    List<Map<String, Object>> summary = [];
+
+    for (var i = 0; i < chosenAnswer.length; i++) {
+      summary.add({
+        'question_index': i,
+        'question': questions[i],
+        'correct_answer': questions[i].answer[0],
+        'your_answer': chosenAnswer[i],
+      });
+    }
+
+    return summary;
+  }
 
   @override
   Widget build(BuildContext context) {
