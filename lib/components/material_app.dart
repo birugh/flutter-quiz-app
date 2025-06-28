@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/app_colors.dart';
-import 'package:quiz_app/screens/questions_screen.dart';
-import 'package:quiz_app/screens/start_screen.dart';
+import 'package:quiz_app/data/questions.dart';
+
+import '../screens/questions_screen.dart';
+import '../screens/start_screen.dart';
+import 'app_colors.dart';
 
 class WidgetMaterialApp extends StatefulWidget {
   const WidgetMaterialApp({super.key});
@@ -11,6 +13,7 @@ class WidgetMaterialApp extends StatefulWidget {
 }
 
 class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
+  List<String> selectedAnswer = [];
   String? activeScreen = 'start-screen';
 
   // @override
@@ -25,6 +28,16 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswer.add(answer);
+    if (selectedAnswer.length == questions.length) {
+      setState(() {
+        selectedAnswer = [];
+        activeScreen = 'start-screen';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // var screenWidget = activeScreen == 'start-screen'
@@ -35,7 +48,7 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     if (activeScreen == 'start-screen') {
       screenWidget = WidgetStartScreen(startQuiz: switchScreen);
     } else {
-      screenWidget = WidgetMenuScreen();
+      screenWidget = WidgetMenuScreen(onSelectAnswer: chooseAnswer);
     }
 
     return MaterialApp(
