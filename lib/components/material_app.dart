@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/components/app_colors.dart';
-import 'package:quiz_app/screens/menu_screen.dart';
+import 'package:quiz_app/screens/questions_screen.dart';
 import 'package:quiz_app/screens/start_screen.dart';
 
 class WidgetMaterialApp extends StatefulWidget {
