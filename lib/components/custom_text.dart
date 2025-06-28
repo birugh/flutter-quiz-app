@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/components/app_colors.dart';
 
-class WidgetCustomText extends StatefulWidget {
+class WidgetCustomText extends StatelessWidget {
   final String? text;
   final double? size;
   final Color? color;
@@ -15,18 +15,13 @@ class WidgetCustomText extends StatefulWidget {
   });
 
   @override
-  State<WidgetCustomText> createState() => _WidgetCustomTextState();
-}
-
-class _WidgetCustomTextState extends State<WidgetCustomText> {
-  @override
   Widget build(BuildContext context) {
     return Text(
-      widget.text ?? 'Text',
+      text ?? 'Text',
       style: TextStyle(
-        fontSize: widget.size ?? 20,
-        color: widget.color ?? AppColors.white,
-        fontWeight: widget.fontWeight ?? FontWeight.w500,
+        fontSize: size ?? 20,
+        color: color ?? AppColors.white,
+        fontWeight: fontWeight ?? FontWeight.w500,
       ),
     );
   }
