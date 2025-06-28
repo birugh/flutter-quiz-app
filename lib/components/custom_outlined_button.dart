@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/components/app_colors.dart';
 
-class WidgetCustomButton extends StatefulWidget {
+class WidgetCustomButton extends StatelessWidget {
   final String? text;
   final double? scaleStroke;
   final double? scaleBorder;
@@ -28,46 +28,37 @@ class WidgetCustomButton extends StatefulWidget {
   });
 
   @override
-  State<WidgetCustomButton> createState() => _WidgetCustomButtonState();
-}
-
-class _WidgetCustomButtonState extends State<WidgetCustomButton> {
-  OutlinedButton CustomOutlinedButton() {
+  Widget build(BuildContext context) {
     return OutlinedButton.icon(
-      onPressed: widget.onPressed,
+      onPressed: onPressed,
       style: ButtonStyle(
         iconAlignment: IconAlignment.start,
         iconSize: WidgetStateProperty.all(24),
         iconColor: WidgetStateProperty.all(AppColors.white),
         side: WidgetStateProperty.all(
           BorderSide(
-            width: widget.scaleStroke ?? 2,
-            color: widget.buttonColor ?? AppColors.white,
+            width: scaleStroke ?? 2,
+            color: buttonColor ?? AppColors.white,
           ),
         ),
         textStyle: WidgetStateProperty.all(
-          TextStyle(color: widget.roundedColor ?? AppColors.white),
+          TextStyle(color: roundedColor ?? AppColors.white),
         ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.scaleBorder ?? 6),
+            borderRadius: BorderRadius.circular(scaleBorder ?? 6),
           ),
         ),
       ),
-      icon: widget.icon,
+      icon: icon ?? Icon(Icons.image_not_supported_rounded),
       label: Text(
-        widget.text ?? "Button",
+        text ?? "Button",
         style: TextStyle(
           color: AppColors.white,
-          fontWeight: widget.fontWeight ?? FontWeight.w600,
-          fontSize: widget.fontSize ?? 16,
+          fontWeight: fontWeight ?? FontWeight.w600,
+          fontSize: fontSize ?? 16,
         ),
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomOutlinedButton();
   }
 }
