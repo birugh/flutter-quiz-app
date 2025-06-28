@@ -11,6 +11,7 @@ class WidgetCustomButton extends StatefulWidget {
   final FontWeight? fontWeight;
   final VoidCallback? onPressed;
   final double? fontSize;
+  final Icon? icon;
 
   const WidgetCustomButton({
     super.key,
@@ -23,6 +24,7 @@ class WidgetCustomButton extends StatefulWidget {
     this.scaleBorder,
     this.onPressed,
     this.fontSize,
+    this.icon,
   });
 
   @override
@@ -31,20 +33,15 @@ class WidgetCustomButton extends StatefulWidget {
 
 class _WidgetCustomButtonState extends State<WidgetCustomButton> {
   OutlinedButton CustomOutlinedButton() {
-    return OutlinedButton(
-      onPressed: widget.onPressed ?? null,
-      child: Text(
-        widget.text ?? "Button",
-        style: TextStyle(
-          color: AppColors.white,
-          fontWeight: widget.fontWeight ?? FontWeight.w600,
-          fontSize: widget.fontSize ?? 16,
-        ),
-      ),
+    return OutlinedButton.icon(
+      onPressed: widget.onPressed,
       style: ButtonStyle(
+        iconAlignment: IconAlignment.start,
+        iconSize: WidgetStateProperty.all(24),
+        iconColor: WidgetStateProperty.all(AppColors.white),
         side: WidgetStateProperty.all(
           BorderSide(
-            width: widget.scaleStroke ?? 3,
+            width: widget.scaleStroke ?? 2,
             color: widget.buttonColor ?? AppColors.white,
           ),
         ),
@@ -53,8 +50,17 @@ class _WidgetCustomButtonState extends State<WidgetCustomButton> {
         ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(widget.scaleBorder ?? 10),
+            borderRadius: BorderRadius.circular(widget.scaleBorder ?? 6),
           ),
+        ),
+      ),
+      icon: widget.icon,
+      label: Text(
+        widget.text ?? "Button",
+        style: TextStyle(
+          color: AppColors.white,
+          fontWeight: widget.fontWeight ?? FontWeight.w600,
+          fontSize: widget.fontSize ?? 16,
         ),
       ),
     );
