@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/components/custom_elevated_button.dart';
 import 'package:quiz_app/components/custom_text.dart';
+import 'package:quiz_app/components/questions_summary.dart';
 import 'package:quiz_app/data/questions.dart';
 
 class WidgetResultsScreen extends StatelessWidget {
@@ -12,9 +13,12 @@ class WidgetResultsScreen extends StatelessWidget {
     List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswer.length; i++) {
+      print('Q: ${questions[i].question}');
+      print('A: ${questions[i].answer[0]}');
+      print('Your A: ${chosenAnswer[i]}');
       summary.add({
         'question_index': i,
-        'question': questions[i],
+        'question': questions[i].question,
         'correct_answer': questions[i].answer[0],
         'your_answer': chosenAnswer[i],
       });
@@ -33,22 +37,13 @@ class WidgetResultsScreen extends StatelessWidget {
             text: 'You answered X out of Y questions correctly!',
           ),
           SizedBox(height: 20),
-          Row(
-            children: [
-              WidgetCustomText(text: 'Question Index'),
-              Column(
-                children: [
-                  WidgetCustomText(text: 'Question'),
-                  WidgetCustomText(text: 'Correct Answer'),
-                  WidgetCustomText(text: 'Your Answer'),
-                ],
-              ),
-            ],
-          ),
+          WidgetQuestionsSummary(summaryData: getSummaryData()),
           SizedBox(height: 20),
           WidgetElevatedButton(
             text: 'Restart Quiz!',
-            onPressed: () {},
+            onPressed: () {
+              // TODO
+            },
             width: 120,
           ),
         ],

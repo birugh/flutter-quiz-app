@@ -33,7 +33,7 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     selectedAnswer.add(answer);
     if (selectedAnswer.length == questions.length) {
       setState(() {
-        selectedAnswer = [];
+        // selectedAnswer = [];
         activeScreen = 'results-screen';
       });
     }
