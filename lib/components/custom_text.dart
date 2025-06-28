@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/app_colors.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'app_colors.dart';
 
 class WidgetCustomText extends StatelessWidget {
   final String? text;
@@ -18,10 +20,10 @@ class WidgetCustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text ?? 'Text',
-      style: TextStyle(
+      style: GoogleFonts.urbanist(
         fontSize: size ?? 20,
         color: color ?? AppColors.white,
-        fontWeight: fontWeight ?? FontWeight.w500,
+        fontWeight: fontWeight ?? FontWeight.bold,
       ),
       textAlign: TextAlign.center,
     );

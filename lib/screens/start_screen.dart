@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/custom_outlined_button.dart';
-import 'package:quiz_app/components/custom_text.dart';
+import '../components/custom_outlined_button.dart';
+import '../components/custom_text.dart';
 
 class WidgetStartScreen extends StatefulWidget {
   const WidgetStartScreen({required this.startQuiz, super.key});

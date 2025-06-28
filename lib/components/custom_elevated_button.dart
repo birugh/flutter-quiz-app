@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/app_colors.dart';
-import 'package:quiz_app/components/custom_text.dart';
+import 'app_colors.dart';
+import 'custom_text.dart';
 
 class WidgetElevatedButton extends StatelessWidget {
   final VoidCallback? onPressed;

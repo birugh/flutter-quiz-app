@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/app_colors.dart';
+import 'package:quiz_app/components/custom_text.dart';
+import 'app_colors.dart';
 
 class WidgetCustomButton extends StatelessWidget {
   final String? text;
@@ -51,13 +52,11 @@ class WidgetCustomButton extends StatelessWidget {
         ),
       ),
       icon: icon ?? Icon(Icons.image_not_supported_rounded),
-      label: Text(
-        text ?? "Button",
-        style: TextStyle(
-          color: AppColors.white,
-          fontWeight: fontWeight ?? FontWeight.w600,
-          fontSize: fontSize ?? 16,
-        ),
+      label: WidgetCustomText(
+        text: text ?? "Button",
+        color: AppColors.white,
+        fontWeight: fontWeight ?? FontWeight.bold,
+        size: fontSize ?? 16,
       ),
     );
   }
