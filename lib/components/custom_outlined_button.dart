@@ -51,7 +51,7 @@ class WidgetCustomButton extends StatelessWidget {
           ),
         ),
       ),
-      icon: icon ?? Icon(Icons.image_not_supported_rounded),
+      icon: icon,
       label: WidgetCustomText(
         text: text ?? "Button",
         color: AppColors.white,

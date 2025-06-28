@@ -3,15 +3,15 @@ import '../components/custom_elevated_button.dart';
 import '../components/custom_text.dart';
 import '../data/questions.dart';
 
-class WidgetMenuScreen extends StatefulWidget {
+class WidgetQuestionMenu extends StatefulWidget {
   final void Function(String answer) onSelectAnswer;
 
-  const WidgetMenuScreen({super.key, required this.onSelectAnswer});
+  const WidgetQuestionMenu({super.key, required this.onSelectAnswer});
   @override
-  State<WidgetMenuScreen> createState() => _WidgetMenuScreenState();
+  State<WidgetQuestionMenu> createState() => _WidgetQuestionMenuState();
 }
 
-class _WidgetMenuScreenState extends State<WidgetMenuScreen> {
+class _WidgetQuestionMenuState extends State<WidgetQuestionMenu> {
   var currentQuestionIndex = 0;
 
   void answerQuestion(String answer) {
