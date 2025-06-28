@@ -29,12 +29,18 @@ class WidgetResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestion = questions.length;
+    final numCorrectAnswer = summaryData.where((data) {
+      return data['your_answer'] == data['correct_answer'];
+    }).length;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           WidgetCustomText(
-            text: 'You answered X out of Y questions correctly!',
+            text:
+                'You answered $numCorrectAnswer out of $numTotalQuestion questions correctly!',
           ),
           SizedBox(height: 20),
           WidgetQuestionsSummary(summaryData: getSummaryData()),
