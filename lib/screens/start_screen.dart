@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:quiz_app/components/custom_button.dart';
+import 'package:quiz_app/components/custom_text.dart';
+
+class WidgetStartScreen extends StatefulWidget {
+  const WidgetStartScreen({super.key});
+
+  @override
+  State<WidgetStartScreen> createState() => _WidgetStartScreenState();
+}
+
+class _WidgetStartScreenState extends State<WidgetStartScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Opacity(
+            opacity: 0.5,
+            child: Image.asset('assets/images/quiz-logo.png', width: 250),
+          ),
+          const SizedBox(height: 50),
+          WidgetCustomText(text: 'Learn Flutter the fun way!'),
+          const SizedBox(height: 20),
+          WidgetCustomButton(
+            onPressed: () {
+              // TODO
+            },
+            text: 'Start Quiz',
+            icon: const Icon(Icons.keyboard_arrow_right_rounded),
+          ),
+        ],
+      ),
+    );
+  }
+}
