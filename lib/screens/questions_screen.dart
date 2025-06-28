@@ -25,7 +25,7 @@ class _WidgetMenuScreenState extends State<WidgetMenuScreen> {
             children: [
               WidgetCustomText(text: currentQuestion.question),
               SizedBox(height: 20),
-              ...currentQuestion.answer.map((item) {
+              ...currentQuestion.getShuffledAnswers().map((item) {
                 return WidgetElevatedButton(text: item, onPressed: () {});
               }),
             ],
