@@ -15,14 +15,25 @@ class WidgetElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width ?? 300,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(AppColors.purpleVeryDark),
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: SizedBox(
+        width: width ?? double.infinity,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all(AppColors.purpleVeryDark),
+            padding: WidgetStateProperty.all(
+              EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            ),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadiusGeometry.all(Radius.circular(12)),
+              ),
+            ),
+          ),
+          child: WidgetCustomText(text: text, color: AppColors.white, size: 16),
         ),
-        child: WidgetCustomText(text: text, color: AppColors.white, size: 16),
       ),
     );
   }

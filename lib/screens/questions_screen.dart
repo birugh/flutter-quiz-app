@@ -13,19 +13,23 @@ class WidgetMenuScreen extends StatefulWidget {
 class _WidgetMenuScreenState extends State<WidgetMenuScreen> {
   @override
   Widget build(BuildContext context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[1];
     return SizedBox(
       width: double.infinity,
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            WidgetCustomText(text: currentQuestion.question),
-            SizedBox(height: 20),
-            ...currentQuestion.answer.map((item) {
-              return WidgetElevatedButton(text: item);
-            }),
-          ],
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              WidgetCustomText(text: currentQuestion.question),
+              SizedBox(height: 20),
+              ...currentQuestion.answer.map((item) {
+                return WidgetElevatedButton(text: item, onPressed: () {});
+              }),
+            ],
+          ),
         ),
       ),
     );
