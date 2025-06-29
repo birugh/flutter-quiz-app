@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/custom_text.dart';
+import 'custom_text.dart';
 import 'app_colors.dart';
 
 class WidgetCustomButton extends StatelessWidget {

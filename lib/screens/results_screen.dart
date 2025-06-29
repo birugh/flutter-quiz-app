@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/components/custom_elevated_button.dart';
-import 'package:quiz_app/components/custom_text.dart';
-import 'package:quiz_app/components/questions_summary.dart';
-import 'package:quiz_app/data/questions.dart';
+import '../components/custom_elevated_button.dart';
+import '../components/custom_text.dart';
+import '../components/questions_summary.dart';
+import '../data/questions.dart';
 
 class WidgetResultsScreen extends StatelessWidget {
   final List<String> chosenAnswer;
