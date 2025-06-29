@@ -8,12 +8,14 @@ class WidgetCustomText extends StatelessWidget {
   final double? size;
   final Color? color;
   final FontWeight? fontWeight;
+  final TextAlign? align;
   const WidgetCustomText({
     super.key,
     this.text,
     this.size,
     this.color,
     this.fontWeight,
+    this.align,
   });
 
   @override
@@ -25,7 +27,7 @@ class WidgetCustomText extends StatelessWidget {
         color: color ?? AppColors.white,
         fontWeight: fontWeight ?? FontWeight.bold,
       ),
-      textAlign: TextAlign.center,
+      textAlign: align ?? TextAlign.center,
     );
   }
 }

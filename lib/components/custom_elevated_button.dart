@@ -27,7 +27,7 @@ class WidgetElevatedButton extends StatelessWidget {
             iconAlignment: IconAlignment.start,
             iconSize: WidgetStateProperty.all(24),
             iconColor: WidgetStateProperty.all(AppColors.white),
-            backgroundColor: WidgetStateProperty.all(AppColors.purpleVeryDark),
+            backgroundColor: WidgetStateProperty.all(AppColors.daisyBush),
             padding: WidgetStateProperty.all(
               EdgeInsets.symmetric(vertical: 8, horizontal: 8),
             ),

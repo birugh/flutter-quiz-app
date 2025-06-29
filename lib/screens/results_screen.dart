@@ -21,9 +21,9 @@ class WidgetResultsScreen extends StatelessWidget {
     List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswer.length; i++) {
-      print('Q: ${questions[i].question}');
-      print('A: ${questions[i].answer[0]}');
-      print('Your A: ${chosenAnswer[i]}');
+      // print('Q: ${questions[i].question}');
+      // print('A: ${questions[i].answer[0]}');
+      // print('Your A: ${chosenAnswer[i]}');
       summary.add({
         'question_index': i,
         'question': questions[i].question,
@@ -42,35 +42,39 @@ class WidgetResultsScreen extends StatelessWidget {
     final numCorrectAnswer = summaryData.where((data) {
       return data['your_answer'] == data['correct_answer'];
     }).length;
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          WidgetCustomText(
-            text:
-                'You answered $numCorrectAnswer out of $numTotalQuestion questions correctly!',
-          ),
-          SizedBox(height: 20),
-          WidgetQuestionsSummary(summaryData: getSummaryData()),
-          SizedBox(height: 20),
-          WidgetElevatedButton(
-            text: 'Restart Quiz!',
-            onPressed: () {
-              // TODO
-              restartQuiz();
-            },
-            width: 140,
-          ),
-          WidgetElevatedButton(
-            text: 'Back',
-            icon: Icon(Icons.arrow_back_ios_rounded),
-            onPressed: () {
-              // TODO
-              goHome();
-            },
-            width: 100,
-          ),
-        ],
+
+    return Padding(
+      padding: const EdgeInsets.all(26.0),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            WidgetCustomText(
+              text:
+                  'You answered $numCorrectAnswer out of $numTotalQuestion questions correctly!',
+            ),
+            SizedBox(height: 20),
+            WidgetQuestionsSummary(summaryData: getSummaryData()),
+            SizedBox(height: 20),
+            WidgetElevatedButton(
+              text: 'Restart Quiz!',
+              onPressed: () {
+                // TODO
+                restartQuiz();
+              },
+              width: 140,
+            ),
+            WidgetElevatedButton(
+              text: 'Back',
+              icon: Icon(Icons.arrow_back_ios_rounded),
+              onPressed: () {
+                // TODO
+                goHome();
+              },
+              width: 100,
+            ),
+          ],
+        ),
       ),
     );
   }

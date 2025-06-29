@@ -74,13 +74,13 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     return MaterialApp(
       title: 'Flutter Quiz',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.purple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.barney),
       ),
       home: Scaffold(
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [AppColors.purpleDark, AppColors.purple],
+              colors: [AppColors.daisyBush, AppColors.barney],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
