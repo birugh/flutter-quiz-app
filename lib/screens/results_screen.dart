@@ -8,11 +8,13 @@ class WidgetResultsScreen extends StatelessWidget {
   final List<String> chosenAnswer;
 
   final void Function() restartQuiz;
+  final void Function() goHome;
 
   const WidgetResultsScreen({
     super.key,
     required this.chosenAnswer,
     required this.restartQuiz,
+    required this.goHome,
   });
 
   List<Map<String, Object>> getSummaryData() {
@@ -57,7 +59,16 @@ class WidgetResultsScreen extends StatelessWidget {
               // TODO
               restartQuiz();
             },
-            width: 120,
+            width: 140,
+          ),
+          WidgetElevatedButton(
+            text: 'Back',
+            icon: Icon(Icons.arrow_back_ios_rounded),
+            onPressed: () {
+              // TODO
+              goHome();
+            },
+            width: 100,
           ),
         ],
       ),

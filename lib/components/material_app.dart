@@ -45,6 +45,13 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
     });
   }
 
+  void goHome() {
+    setState(() {
+      selectedAnswer = [];
+      activeScreen = 'start-screen';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // var screenWidget = activeScreen == 'start-screen'
@@ -56,6 +63,7 @@ class _WidgetMaterialAppState extends State<WidgetMaterialApp> {
       screenWidget = WidgetStartScreen(startQuiz: switchScreen);
     } else if (activeScreen == 'results-screen') {
       screenWidget = WidgetResultsScreen(
+        goHome: goHome,
         chosenAnswer: selectedAnswer,
         restartQuiz: restartQuiz,
       );

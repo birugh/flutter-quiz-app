@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import '../components/custom_outlined_button.dart';
 import '../components/custom_text.dart';
@@ -12,6 +14,10 @@ class WidgetStartScreen extends StatefulWidget {
 }
 
 class _WidgetStartScreenState extends State<WidgetStartScreen> {
+  void exitButton() {
+    exit(0);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,6 +35,11 @@ class _WidgetStartScreenState extends State<WidgetStartScreen> {
             onPressed: widget.startQuiz,
             text: 'Start Quiz',
             icon: const Icon(Icons.keyboard_arrow_right_rounded),
+          ),
+          WidgetCustomButton(
+            onPressed: exitButton,
+            text: 'Exit',
+            icon: const Icon(Icons.exit_to_app),
           ),
         ],
       ),
